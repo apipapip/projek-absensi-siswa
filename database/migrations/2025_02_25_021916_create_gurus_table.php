@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('mapel',20);
             $table->string('username',30);
             $table->string('password',30);
-            $table->foreignId('user_id')->references('id')->on('penggunas')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
