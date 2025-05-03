@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('lokals', function (Blueprint $table) {
             $table->id();
+            $table->string('nama',30);
             $table->foreignId('jurusan_id')->references('id')->on('jurusans')->onDelete('cascade');
             $table->foreignId('guru_id')->references('id')->on('gurus')->onDelete('cascade');
             $table->timestamps();

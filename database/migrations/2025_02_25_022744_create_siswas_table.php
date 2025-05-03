@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('no_telp',13);
             $table->string('jurusan',30);
             $table->string('username',30);
-            $table->string('password',30);
+            $table->string('password');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

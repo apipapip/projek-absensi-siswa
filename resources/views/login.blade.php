@@ -7,6 +7,7 @@
     <title>Login - Mazer Admin Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{asset('assets/vendors/sweetalert2/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/dist/vendors/bootstrap-icons/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/dist/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('assets/dist/css/pages/auth.css')}}">
@@ -19,10 +20,16 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="#"><img src="{{asset('assets/dist/images/logo/logo.png')}}" alt="Logo"></a>
+                        <h1 class="auth-title">Log in.</h1>
                     </div>
-                    <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+
+                    @if(session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h5><i class="icon fas fa-ban"></i> Alert</h5>
+                        {{ session('loginError') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
 
                     <form action="{{route('auth')}}" method="post">
                         @csrf
@@ -49,7 +56,6 @@
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">Don't have an account? <a href="{{ url('up') }}"
                                 class="font-bold">Sign up</a>.</p>
-                        <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
                     </div>
                 </div>
             </div>
@@ -61,6 +67,6 @@
         </div>
 
     </div>
+    <script src="{{ asset('assets/dist/js/bootstrap.bundle.min.js') }}"></script>
 </body>
-
 </html>
