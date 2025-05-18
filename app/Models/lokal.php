@@ -27,4 +27,10 @@ class lokal extends Model
     {
         return $this->belongsTo(Guru::class, 'guru_id');
     }
+
+    // Relasi ke model Jadwal
+    public function jadwals()
+    {
+        return $this->hasMany(Jadwal::class, 'lokal_id');
+    }
 }

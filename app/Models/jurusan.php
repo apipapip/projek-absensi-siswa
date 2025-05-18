@@ -21,4 +21,9 @@ class Jurusan extends Model
     // {
     //     return $this->hasMany(Siswa::class);
     // }
+
+    public function lokals()
+    {
+        return $this->hasMany(Lokal::class, 'jurusan_id');
+    }
 }

@@ -19,10 +19,10 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <div class="auth-logo">
-                        <h1 class="auth-title">Log in.</h1>
+                    <div class="auth-logo d-flex justify-content-start">
+                        <img class="img-error rounded-circle" src="{{ asset('assets/dist/images/logo/public.jpg') }}" alt="Not Found" style="width: 150px; height: 150px; object-fit: cover;">
                     </div>
-
+                        <h1 class="auth-title">Log in.</h1>
                     @if(session()->has('loginError'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <h5><i class="icon fas fa-ban"></i> Alert</h5>

@@ -54,13 +54,13 @@
 
                                 <td>
                                     <div class="action-btns">
-                                        <a href="{{ route('mapel.show', $dg->id) }}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye" title="Lihat"></i></a>
-                                        <a href="{{ route('mapel.edit', $dg->id) }}" class="btn btn-outline-warning btn-sm"><i class="fas fa-pencil-alt" title="Edit"></i></a>
+                                        <!-- <a href="{{ route('mapel.show', $dg->id) }}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye" title="Lihat"></i></a> -->
+                                        <!-- <a href="{{ route('mapel.edit', $dg->id) }}" class="btn btn-outline-warning btn-sm"><i class="fas fa-pencil-alt" title="Edit"></i></a> -->
                                         <form action="{{ route('mapel.destroy', $dg->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                                <i class="fas fa-trash" title="Hapus"></i>
+                                                <i class="fas fa-trash" title="Hapnbus"></i>
                                             </button>
                                         </form>
                                     </div>

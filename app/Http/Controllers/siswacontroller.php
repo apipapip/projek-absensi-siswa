@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\lokal;
 use App\Models\siswa;
 use App\Models\jurusan;
 use Illuminate\Http\Request;
@@ -22,9 +23,11 @@ class siswacontroller extends Controller
     public function create()
     {
         $jurusan = jurusan::all(); // Ambil semua data user
+        $lokal = lokal::all(); // Ambil semua data lokal
         return view('admin.siswa.create', [
             'menu' => 'siswa',
             'title' => 'Tambah Data siswa',
+            'kelas' => $lokal, // Kirim data lokal ke view
             'jurusan' => $jurusan, // Kirim data user ke view
         ]);
     }
@@ -37,10 +40,11 @@ class siswacontroller extends Controller
             'nama' => 'required',
             'jk' => 'required',
             'no_telp' => 'required|max:13',
-            'jurusan' => 'required',
+            
             'email' => 'required',
             'username' => 'required',
             'password' => 'required',
+            'lokal_id' => 'required',
            
         ], [
             'NISN.required' => 'NISN harus diisi',
@@ -51,6 +55,7 @@ class siswacontroller extends Controller
             'email.required' => 'Email harus diisi',
             'username.required' => 'Username harus diisi',
             'password.required' => 'Password harus diisi',
+            'lokal_id.required' => 'Lokal harus diisi',
 
 
         ]);
@@ -67,9 +72,9 @@ class siswacontroller extends Controller
         $siswa->nama = $validasi['nama'];
         $siswa->jk = $validasi['jk'];
         $siswa->no_telp = $validasi['no_telp'];
-        $siswa->jurusan = $validasi['jurusan'];
         $siswa->username = $validasi['username'];
         $siswa->password = bcrypt($validasi['password']);
+        $siswa->lokal_id = $validasi['lokal_id'];
         $siswa->user_id = $user->id; // Ambil ID user yang baru saja dibuat
 
         $siswa->save();

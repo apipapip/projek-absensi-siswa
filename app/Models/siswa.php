@@ -32,4 +32,15 @@ class Siswa extends Authenticatable
     {
         return $this->belongsTo(User::class);
     }
+
+    // Relasi ke model Absensi
+    public function absensis()
+    {
+        return $this->hasMany(absensi::class, 'siswa_id');
+    }
+
+    public function lokal()
+{
+    return $this->belongsTo(Lokal::class, 'lokal_id');
+}
 }

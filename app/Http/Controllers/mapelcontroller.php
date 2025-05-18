@@ -29,24 +29,17 @@ class mapelcontroller extends Controller
 
     public function store(Request $request)
     {
-        
         $validasi = $request->validate([
             'nama_mapel' => 'required',
-            
-            
-           
+            'jadwal_mapel' => 'required',
         ], [
-            'nama_mapel.required' => 'nama_mapel harus diisi',
-           
-           
-
-
+            'nama_mapel.required' => 'Nama Mapel harus diisi',
+            'jadwal_mapel.required' => 'Jadwal Mapel harus diisi',
         ]);
 
         $mapel = new mapel;
         $mapel->nama_mapel = $validasi['nama_mapel'];
-        $mapel->jadwal_mapel = now()->format('H:i:s');
-
+        $mapel->jadwal_mapel = $validasi['jadwal_mapel'];
 
         $mapel->save();
 

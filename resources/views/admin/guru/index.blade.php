@@ -39,7 +39,7 @@
                                 <th>No</th>
                                 <th>NIP</th>
                                 <th>Nama</th>
-                                <th>Jenis Kelamin</th>
+                                <th>Mata Pelajaran</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -49,7 +49,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $dg->NIP }}</td>
                                 <td>{{ $dg->nama }}</td>
-                                <td>{{ $dg->jk }}</td>
+                                <td>{{ $dg->mapel }}</td>
                                 <td>
                                     <div class="action-btns">
                                         <a href="{{ route('guru.show', $dg->id) }}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye" title="Lihat"></i></a>

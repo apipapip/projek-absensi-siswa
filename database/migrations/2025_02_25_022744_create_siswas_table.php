@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('nama',30);
             $table->enum('jk',['laki-laki','perempuan']);
             $table->string('no_telp',13);
-            $table->string('jurusan',30);
-            $table->string('username',30);
+            $table->string('username');
             $table->string('password');
+            $table->foreignId('lokal_id')->references('id')->on('lokals')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/dist/css/bootstrap.css') }}">
@@ -21,7 +22,7 @@
 
 <body>
     <div id="app">
-        <div id="sidebar" class="active">
+       <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
             <div class="sidebar-header">
                 <div class="d-flex justify-content-between align-items-center">
@@ -54,7 +55,7 @@
                <hr>
                 
                 <div class="sidebar-menu">
-                    @include('template-admin.sidebar')
+                    @include('template-guru.sidebar')
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>

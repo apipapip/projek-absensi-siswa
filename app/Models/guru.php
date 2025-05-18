@@ -19,6 +19,7 @@ class Guru extends Authenticatable
         'mapel',
         'username',
         'password',
+        'mapel_id',
         'user_id',
     ];
 
@@ -30,6 +31,21 @@ class Guru extends Authenticatable
     // Relasi ke model User
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function lokals()
+    {
+        return $this->hasMany(Lokal::class, 'guru_id');
+    }
+
+    public function mengajars()
+    {
+        return $this->hasMany(Mengajar::class, 'guru_id');
+    }
+
+    public function absensis()
+    {
+        return $this->hasMany(absensi::class, 'guru_id');
     }
 }

@@ -1,5 +1,5 @@
-@extends('template-admin.layout')
-@section('title', 'Dashboard Admin')
+@extends('template-guru.layout')
+@section('title', 'Dashboard Guru')
 @section('header-content')
 
 <h1>Dashboard</h1>

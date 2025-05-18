@@ -6,6 +6,7 @@ use App\Models\guru;
 use App\Models\lokal;
 use App\Models\jurusan;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 
 class lokalcontroller extends Controller
 {
@@ -63,8 +64,7 @@ class lokalcontroller extends Controller
         $lokal->jurusan_id = $validasi['jurusan_id'];
         $lokal->guru_id = $validasi['guru_id'];
         $lokal->save();
-
-
+        
         return redirect(route('lokal.index'))->with('success', 'Data kelas berhasil ditambahkan dan level user diperbarui menjadi walikelas');
     }
 

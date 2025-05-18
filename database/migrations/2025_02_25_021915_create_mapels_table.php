@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mapels', function (Blueprint $table) {
             $table->id();
             $table->string('nama_mapel', 30);
-            $table->string('jadwal_mapel', 30);
+            $table->string('jadwal_mapel', 30)->nullable();
             $table->timestamps();
         });
     }

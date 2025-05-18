@@ -1,6 +1,6 @@
 @extends('template-admin.layout')
 @section('title', 'Tambah Data Siswa')
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 @section('content')
 <div class="col-12">
     <div class="card">
@@ -42,12 +42,17 @@
                             <!-- Jenis Kelamin -->
                             <div class="col-12">
                                 <label for="jk">Jenis Kelamin</label>
-                                <div class="form-group">
-                                    <select id="jk" class="form-control" name="jk" required>
-                                        <option value="">Pilih Jenis Kelamin</option>
-                                        <option value="laki-laki">Laki-laki</option>
-                                        <option value="perempuan">Perempuan</option>
-                                    </select>
+                                <div class="form-group has-icon-left">
+                                    <div class="position-relative">
+                                        <select id="jk" class="form-control" name="jk" required>
+                                            <option value="">Pilih Jenis Kelamin</option>
+                                            <option value="laki-laki">Laki-laki</option>
+                                            <option value="perempuan">Perempuan</option>
+                                        </select>
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-gender-ambiguous"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -65,17 +70,26 @@
                             </div>
 
                             <!-- Jurusan -->
+                            
+
+                            <!-- Kelas -->
                             <div class="col-12">
-                                <label for="jurusan">Jurusan</label>
-                                <div class="form-group">
-                                    <select id="jurusan" class="form-control" name="jurusan" required>
-                                        <option value="">Pilih Jurusan</option>
-                                        @foreach($jurusan as $j)
-                                            <option value="{{ $j->nama_jurusan }}">{{ $j->nama_jurusan }}</option>
-                                        @endforeach
-                                    </select>
+                                <label for="kelas">Kelas</label>
+                                <div class="form-group has-icon-left">
+                                    <div class="position-relative">
+                                        <select id="lokal_id" class="form-control" name="lokal_id" required>
+                                            <option value="">Pilih Kelas</option>
+                                            @foreach($kelas as $k)
+                                                <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-building"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <label for="email">Email</label>
                                 <div class="form-group has-icon-left">

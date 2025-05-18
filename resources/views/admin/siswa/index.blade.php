@@ -49,7 +49,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $dg->NISN }}</td>
                                 <td>{{ $dg->nama }}</td>
-                                <td>{{ $dg->jurusan }}</td>
+                                <td>{{ $dg->lokal->jurusan->nama_jurusan }}</td>
                                 <td>
                                     <div class="action-btns">
                                         <a href="{{ route('siswa.show', $dg->id) }}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye" title="Lihat"></i></a>

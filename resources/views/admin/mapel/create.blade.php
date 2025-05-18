@@ -18,7 +18,7 @@
                                 <label for="nama_mapel">Nama Mapel</label>
                                 <div class="form-group has-icon-left">
                                     <div class="position-relative">
-                                        <input type="text" id="nama_mapel" class="form-control" name="nama_mapel" placeholder="Masukkan nama_mapel" required>
+                                        <input type="text" id="nama_mapel" class="form-control" name="nama_mapel" placeholder="Masukkan Nama Mata Pelajaran" required>
                                         <div class="form-control-icon">
                                             <i class="bi bi-person-badge"></i>
                                         </div>
@@ -26,14 +26,18 @@
                                 </div>
                             </div>
 
-                            <!-- Nama -->
-                           
-
-                           
-
-
-
-
+                            <!-- jadwal_mapel -->
+                            <div class="col-12">
+                                <label for="jadwal_mapel">Jadwal Mapel</label>
+                                <div class="form-group has-icon-left">
+                                    <div class="position-relative">
+                                        <input type="text" id="jadwal_mapel" class="form-control" name="jadwal_mapel" placeholder="Masukkan jadwal Mata Pelajaran" required>
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-clock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- Buttons -->
                             <div class="col-12 d-flex justify-content-end">

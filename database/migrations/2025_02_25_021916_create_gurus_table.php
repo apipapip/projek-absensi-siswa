@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('no_telp',13);
             $table->enum('jk', ['pria','wanita']);
             $table->string('mapel',20);
-            $table->string('username',30);
+            $table->string('username');
             $table->string('password');
+            $table->foreignId('mapel_id')->references('id')->on('mapels')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

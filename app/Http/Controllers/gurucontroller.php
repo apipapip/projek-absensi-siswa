@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\guru;
 use App\Models\User;
+use App\Models\mapel;
 use Illuminate\Http\Request;
 
 class gurucontroller extends Controller
@@ -53,6 +54,10 @@ class gurucontroller extends Controller
             
         ]);
 
+        $mapel = new mapel;
+        $mapel->nama_mapel = $validasi['mapel'];
+        $mapel-> save();
+
         $user = new User;
         $user->username = $validasi['username'];
         $user->email = $validasi['email'];
@@ -68,8 +73,8 @@ class gurucontroller extends Controller
         $guru->mapel = $validasi['mapel'];
         $guru->username = $validasi['username'];
         $guru->password = bcrypt($validasi['password']);
+        $guru->mapel_id = $mapel->id; // Ambil ID mapel yang baru saja dibuat
         $guru->user_id = $user->id; // Ambil ID user yang baru saja dibuat
-
         $guru->save();
 
         return redirect(route('guru.index'));
@@ -143,5 +148,17 @@ class gurucontroller extends Controller
         $user->save();
 
         return redirect(route('guru.index'))->with('success', 'Data guru berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        $guru = guru::findOrFail($id);
+        $user = User::findOrFail($guru->user_id);
+
+        // Hapus data guru dan user
+        $guru->delete();
+        $user->delete();
+
+        return redirect(route('guru.index'))->with('success', 'Data guru berhasil dihapus');
     }
 }
