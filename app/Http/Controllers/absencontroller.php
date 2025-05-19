@@ -65,7 +65,7 @@ class absencontroller extends Controller
     {
         $request->validate([
             'status' => 'required|array',
-            'status.*' => 'in:hadir,sakit,alpa',
+            'status.*' => 'in:hadir,sakit,alfa',
         ]);
 
         $statuses = $request->input('status', []);
@@ -107,5 +107,35 @@ class absencontroller extends Controller
         }
 
         return redirect()->route('absen.index')->with('success', 'Status absen siswa berhasil disimpan.');
+    }
+
+    public function edit($id)
+    {
+        $absen = absensi::with(['siswa', 'guru'])->findOrFail($id);
+        $statuses = ['hadir', 'sakit', 'alfa'];
+        return view('guru.absen.edit', [
+            'menu' => 'absen',
+            'title' => 'Edit Absen',
+            'absen' => $absen,
+            'statuses' => $statuses
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:hadir,sakit,alfa',
+        ]);
+
+        $absen = absensi::findOrFail($id);
+
+        // Update status, guru, tanggal, dan jam saat diedit
+        $absen->status = $request->status;
+        $absen->guru_id = \App\Models\guru::where('username', Auth::user()->username)->first()->id;
+        $absen->tanggal = now()->toDateString();
+        $absen->jam = now()->toTimeString();
+        $absen->save();
+
+        return redirect()->route('absen.index')->with('success', 'Data absen berhasil diupdate.');
     }
 }

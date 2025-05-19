@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<a href="{{route('absen.index')}}" class="btn btn-success btn-custom-width mb-2"><i class="fas fa-arrow-left"></i> Kembali</a>
 
 <div class="card">
     <h5 class="card-header">Absen Siswa</h5>
@@ -39,7 +38,7 @@
                         <th>Kelas</th>
                         <th>Hadir</th>
                         <th>Sakit</th>
-                        <th>Alpa</th>
+                        <th>Alfa</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
@@ -55,15 +54,21 @@
                             <input type="radio" name="status[{{ $dg->id }}]" value="sakit" class="select-sakit">
                         </td>
                         <td>
-                            <input type="radio" name="status[{{ $dg->id }}]" value="alpa" class="select-alpa">
+                            <input type="radio" name="status[{{ $dg->id }}]" value="alfa" class="select-alfa">
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="row justify-content-end">
+                <div class="col-sm-10 text-left ms-auto">
+                    <a href="{{route('absen.index')}}" class="btn btn-success btn-custom-width mb-2">
+                        <i class="fas fa-arrow-left"></i> Kembali</a>
+                </div>
                 <div class="col-sm-2 text-right">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check"></i> Submit
+                    </button>
                 </div>
             </div>
         </form>

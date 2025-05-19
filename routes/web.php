@@ -50,3 +50,5 @@ Route::resource('mapel', mapelcontroller::class);
 Route::resource('absen', absencontroller::class);
 Route::post('absen/updateStatus', [AbsenController::class, 'updateStatus'])->name('absen.updateStatus');
 Route::resource('rekap', RekapController::class);
+Route::get('absen/{id}/edit', [absencontroller::class, 'edit'])->name('absen.edit');
+Route::put('absen/{id}', [absencontroller::class, 'update'])->name('absen.update');
