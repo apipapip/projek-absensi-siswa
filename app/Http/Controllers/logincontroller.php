@@ -28,7 +28,7 @@ class logincontroller extends Controller
         // Cek apakah user ini adalah siswa
         $siswa = siswa::where('username', $user->username)->first();
         if ($siswa) {
-            return redirect()->route('dashboard-siswa');
+            return redirect()->route('rekap.index');
            
         }
 

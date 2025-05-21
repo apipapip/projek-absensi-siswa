@@ -39,20 +39,18 @@ class absencontroller extends Controller
 
     public function create(Request $request)
     {
-        $query = siswa::with('lokal');
+        $lokals = \App\Models\lokal::all();
+        $datasiswa = collect();
 
         if ($request->has('kelas') && $request->kelas != '') {
-            $query->where('lokal_id', $request->kelas);
+            $datasiswa = \App\Models\siswa::where('lokal_id', $request->kelas)->get();
         }
-
-        $datasiswa = $query->get();
-        $lokals = lokal::all();
 
         return view('guru.absen.create', [
             'menu' => 'absen',
             'title' => 'Absen Siswa',
-            'datasiswa' => $datasiswa,
-            'lokals' => $lokals
+            'lokals' => $lokals,
+            'datasiswa' => $datasiswa
         ]);
     }
 

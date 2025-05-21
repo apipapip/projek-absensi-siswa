@@ -28,6 +28,7 @@
         </form>
     </div>
     <div class="table-responsive text-nowrap">
+        @if($datasiswa->count() > 0)
         <form method="POST" action="{{ route('absen.updateStatus') }}">
             @csrf
             <table class="table">
@@ -72,6 +73,9 @@
                 </div>
             </div>
         </form>
+        @else
+        <div class="alert alert-info">Silakan pilih kelas terlebih dahulu.</div>
+        @endif
     </div>
 </div>
 @endsection
