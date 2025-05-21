@@ -16,6 +16,53 @@
     <link rel="stylesheet" href="{{asset('assets/dist/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{asset('assets/dist/css/app.css') }}">
     <link rel="shortcut icon" href="{{asset('assets/dist/images/favicon.svg') }}" type="image/x-icon">
+    <style>
+    body {
+        background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
+        min-height: 100vh;
+    }
+    .dashboard .card {
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: none;
+    }
+    .dashboard .card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .dashboard .card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 2rem;
+        background: #f1f5f9;
+        margin-right: 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Icon warna berbeda */
+    .dashboard .card-icon .bi-person-badge { color: #6366f1; }
+    .dashboard .card-icon .bi-person-lines-fill { color: #10b981; }
+    .dashboard .card-icon .bi-door-open { color: #f59e42; }
+    .dashboard .card-icon .bi-diagram-3 { color: #f43f5e; }
+    .dashboard .card-icon .bi-briefcase-fill { color: #0ea5e9; }
+    .dashboard .card-icon .bi-clipboard-check { color: #a21caf; }
+    .dashboard h5.card-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #334155;
+    }
+    .dashboard h6 {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: #0f172a;
+    }
+    .dashboard .text-muted {
+        color: #64748b !important;
+    }
+</style>
     @yield('css')
 </head>
 

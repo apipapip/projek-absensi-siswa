@@ -1,7 +1,6 @@
 @extends('template-admin.layout')
 @section('title', 'Dashboard Admin')
 @section('header-content')
-
 <h1>Dashboard</h1>
 <!--  -->
 @endsection

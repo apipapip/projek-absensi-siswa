@@ -9,6 +9,7 @@ use App\Models\absensi;
 use App\Models\jurusan;
 use App\Models\mengajar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class dashboardcontroller extends Controller
 {
@@ -46,6 +47,24 @@ class dashboardcontroller extends Controller
             'jumlahJurusan' => $jumlahJurusan,
             'jumlahMengajar' => $jumlahMengajar,
             'jumlahAbsen' => $jumlahAbsen,
+        ]);
+    }
+    public function siswa()
+    {
+        $siswa = siswa::where('username', Auth::user()->username)->firstOrFail();
+        $rekapAbsensi = absensi::where('siswa_id', $siswa->id)->get();
+
+        $jumlahHadir = $rekapAbsensi->where('status', 'hadir')->count();
+        $jumlahSakit = $rekapAbsensi->where('status', 'sakit')->count();
+        $jumlahAlfa  = $rekapAbsensi->where('status', 'alfa')->count();
+
+        return view('siswa.index', [
+            'menu' => 'dashboard',
+            'siswa' => $siswa,
+            'rekapAbsensi' => $rekapAbsensi,
+            'jumlahHadir' => $jumlahHadir,
+            'jumlahSakit' => $jumlahSakit,
+            'jumlahAlfa'  => $jumlahAlfa,
         ]);
     }
 }

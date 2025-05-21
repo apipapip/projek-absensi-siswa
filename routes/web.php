@@ -17,12 +17,7 @@ Route::get('home', [dashboardcontroller::class, 'index'])->name('home');
 
 Route::get('dashboardGuru', [dashboardcontroller::class, 'guru'])->name('dashboard-guru');
 
-Route::get('dashboardWalikelas', function () {
-    return view('walikelas.index', [
-        'menu' => 'dashboard',
-        
-    ]);
-})->name('dashboard-walikelas');
+Route::get('/dashboardSiswa', [dashboardcontroller::class, 'siswa'])->name('dashboard-siswa');
 
 Route::fallback(function () {
     return response()->view('error-404', [], 404);
