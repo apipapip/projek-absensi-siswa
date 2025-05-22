@@ -21,7 +21,7 @@
 @section('content')
 <div class="d-flex mb-2">
     <a href="{{ route('guru.create') }}" class="btn btn-success btn-custom-width"><i class="fas fa-plus"></i> Tambah Data guru</a>
-   
+
 </div>
 <div class="row">
     <div class="col">

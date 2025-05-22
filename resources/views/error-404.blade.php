@@ -21,7 +21,7 @@
                 <div class="text-center">
                     <h1 class="error-title">NOT FOUND</h1>
                     <p class='fs-5 text-gray-600'>Halaman Yang Kamu Cari Tidak Ditemukan.</p>
-                    <a href="{{ url('home') }}" class="btn btn-lg btn-outline-primary mt-3">Kembali Ke Beranda</a>
+                    <a href="{{ url()->previous() }}" class="btn btn-lg btn-outline-primary mt-3">Kembali</a>
                 </div>
             </div>
         </div>

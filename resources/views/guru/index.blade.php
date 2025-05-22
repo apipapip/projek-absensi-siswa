@@ -1,14 +1,19 @@
 @extends('template-guru.layout')
 @section('title', 'Dashboard Guru')
 @section('header-content')
-    <h1 class="mb-3">Dashboard Guru</h1>
-    <p class="text-muted">Selamat datang di dashboard, <strong>{{ Auth::user()->name ?? 'Guru' }}</strong>!</p>
+    <div class="mb-4 p-4 rounded" style="background: linear-gradient(90deg, #1cc88a 60%, #198754 100%); color: #fff;">
+        <h2 class="mb-1"><i class="fas fa-chalkboard-teacher me-2"></i>Selamat datang, <span class="fw-bold">{{ $guru->nama }}</span>!</h2>
+        <p class="mb-0">Semoga harimu menyenangkan dan penuh semangat dalam membimbing siswa.</p>
+    </div>
 @endsection
+
+
 
 @section('content')
 <section class="section dashboard">
-<div class="row">
-
+    <!-- <div class="alert alert-success mb-4">
+        Selamat datang, <strong>{{ $guru->nama ?? 'Guru' }}</strong>! Semoga harimu menyenangkan dan penuh semangat dalam membimbing siswa.
+    </div> -->
     <div class="row">
         <!-- Card Jumlah Siswa -->
         <div class="col-md-4 mb-4">

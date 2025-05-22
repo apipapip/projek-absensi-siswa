@@ -10,9 +10,11 @@
         justify-content: center;
         gap: 8px;
     }
+
     .action-btns .btn {
         margin: 0;
     }
+
     .btn-custom-width {
         width: auto;
     }
@@ -62,22 +64,22 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                
-    @foreach($dataabsen->sortByDesc('tanggal') as $da)
-    <tr>
-        <td>{{$loop->iteration}}</td>
-        <td>{{$da->siswa->nama ?? '-'}}</td>
-        <td>{{$da->siswa->lokal->nama ?? '-'}}</td>
-        <td>{{$da->status ?? '-'}}</td>
-        <td>{{$da->tanggal ?? '-'}}</td>
-        <td>{{$da->jam ?? '-'}}</td>
-        <td>{{$da->guru->nama ?? '-'}}</td>
-        <td>
-            <a href="{{ route('absen.edit', $da->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-        </td>
-    </tr>
-    @endforeach
-</tbody>
+
+                @foreach($dataabsen->sortByDesc('tanggal') as $da)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$da->siswa->nama ?? '-'}}</td>
+                    <td>{{$da->siswa->lokal->nama ?? '-'}}</td>
+                    <td>{{$da->status ?? '-'}}</td>
+                    <td>{{$da->tanggal ?? '-'}}</td>
+                    <td>{{$da->jam ?? '-'}}</td>
+                    <td>{{$da->guru->nama ?? '-'}}</td>
+                    <td>
+                        <a href="{{ route('absen.edit', $da->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
             </tbody>
         </table>
     </div>

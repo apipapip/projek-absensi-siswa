@@ -39,6 +39,10 @@ class dashboardcontroller extends Controller
         $jumlahJurusan = jurusan::count(); // Menghitung jumlah jurusan
         $jumlahMengajar = mengajar::count(); // Menghitung jumlah mengajar
         $jumlahAbsen = absensi::count(); // Menghitung jumlah absen
+
+        // Ambil data guru yang sedang login
+        $guru = guru::where('username', Auth::user()->username)->first();
+
         return view('guru.index', [
             'menu' => 'dashboard-guru',
             'jumlahSiswa' => $jumlahSiswa,
@@ -47,6 +51,7 @@ class dashboardcontroller extends Controller
             'jumlahJurusan' => $jumlahJurusan,
             'jumlahMengajar' => $jumlahMengajar,
             'jumlahAbsen' => $jumlahAbsen,
+            'guru' => $guru,
         ]);
     }
     public function siswa()
